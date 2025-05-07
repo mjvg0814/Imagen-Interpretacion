@@ -12,9 +12,7 @@ st.set_page_config(page_title="Análisis de Imagen", layout="centered", initial_
 st.title("Análisis de Imagen 🤖🏞️")
 
 # Barra lateral para ingresar la clave de API
-st.sidebar.header("Configuración")
-ke = st.sidebar.text_input('Ingresa tu Clave de API', type='password')
-os.environ['OPENAI_API_KEY'] = ke
+api_key = st.secrets["OPENAI_API_KEY"]
 
 # Recuperar la clave de API de OpenAI
 api_key = os.environ['OPENAI_API_KEY']
