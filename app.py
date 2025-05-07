@@ -74,7 +74,7 @@ if uploaded_file is not None and api_key and analyze_button:
         try:
             full_response = ""
             message_placeholder = st.empty()
-            for completion in client.chat.completions.create(
+            for completion in client.chat.completions.create :(
                  model="gpt-4-vision-preview", messages=messages,   
             )
             
