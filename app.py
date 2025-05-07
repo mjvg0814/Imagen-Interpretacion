@@ -12,9 +12,9 @@ st.set_page_config(page_title="Análisis de Imagen", layout="centered", initial_
 st.title("Análisis de Imagen 🤖🏞️")
 
 # Barra lateral para ingresar la clave de API
+st.sidebar.header("Configuración")
 ke = st.sidebar.text_input('Ingresa tu Clave de API', type='password')
 os.environ['OPENAI_API_KEY'] = ke
-api_key = os.environ['OPENAI_API_KEY']
 
 # Recuperar la clave de API de OpenAI
 api_key = os.environ['OPENAI_API_KEY']
@@ -74,11 +74,10 @@ if uploaded_file is not None and api_key and analyze_button:
         try:
             full_response = ""
             message_placeholder = st.empty()
-           for completion in client.chat.completions.create(
+            for completion in client.chat.completions.create(
                 model="gpt-4-vision-preview", messages=messages,   
                 max_tokens=1200, stream=True
             ):
-            
                 if completion.choices[0].delta.content is not None:
                     full_response += completion.choices[0].delta.content
                     message_placeholder.markdown(full_response + "▌")
@@ -92,4 +91,3 @@ else:
         st.warning("Por favor, carga una imagen.")
     if not api_key:
         st.warning("Por favor, ingresa tu clave API.")
-
