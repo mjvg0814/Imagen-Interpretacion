@@ -28,7 +28,7 @@ uploaded_file = st.file_uploader("📤 Carga una imagen", type=["jpg", "png", "j
 if uploaded_file:
     # Mostrar la imagen cargada
     with st.expander("Vista Previa de la Imagen", expanded=True):
-        st.image(uploaded_file, caption=uploaded_file.name, use_column_width=True)
+        st.image(uploaded_file, caption=uploaded_file.name, use_container_width=True)
 
 # Toggle para mostrar detalles adicionales
 show_details = st.checkbox("¿Agregar detalles sobre la imagen?", value=False)
